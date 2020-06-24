@@ -1,5 +1,21 @@
 @import "~normalize.css";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import "bourbon";
+
+@mixin border-gradient($from, $to, $weight: 0) {
+  $mix-main: mix($from, $to);
+  $mix-sub-from: mix($mix-main, $from);
+  $mix-sub-to: mix($mix-main, $to);
+  
+  box-shadow: 0 1px 0 $weight rgba($mix-sub-to, .25),
+              0 -1px 0 $weight rgba($mix-sub-from, .25),
+              1px 0 0 $weight rgba($mix-sub-to, .25),
+              -1px 0 0 $weight  rgba($mix-sub-from, .25),
+              1px -1px 0 $weight rgba($mix-main, .5),
+              -1px 1px 0 $weight rgba($mix-main, .5),
+              1px 1px 0 $weight rgba($to, .75),
+              -1px -1px 0 $weight rgba($from, .75);
+}
 
 html {
   box-sizing: border-box;
@@ -93,10 +109,11 @@ html {
 .main {
   position: absolute;
   top: 60px;
+  
 }
 
 .header {
-  
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -122,8 +139,26 @@ html {
   }
 }
 
+.counter {
+  display: flex;
+  min-width: 35vw;
+  justify-content: space-evenly;
+  align-items: center;
+  
+
+  &__header {
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  &__number {
+    font-size: 1.5em;
+  }
+}
+
 .app {
   min-width: 100vw;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -136,8 +171,58 @@ html {
 }
 
 .buttons {
-  margin: 16px 0;
+  margin: 32px 0;
+  width: 100vw;
+  
+  display: flex;
+  justify-content: space-around;
 
+  &__button {
+    // border: 4px solid #4C83FF;
+    outline: none;
+    width: 70px;
+    height: 70px;
+    font-size: 0.75rem;
+    background-color: #FFF;
+    border-radius: 50%;
+    text-transform: uppercase;
+    color: #6f99fa;
+  }
+
+  &__add {
+    @include border-gradient(skyblue,hotpink);
+
+    &:hover {
+      // animation: border-animation 1s linear infinite;
+    }
+
+    &:active {
+      background-color: #d6e3ff;
+    }
+  }
+
+  &__remove {
+    @include border-gradient(red,yellow);
+    color: #9e1919;
+
+    &:hover {
+
+    }
+
+    &:active {
+      background-color: #ffd6d6;
+    }
+  }
+}
+
+@keyframes border-animation {
+  from {
+    transform: rotate(0deg) scale(1);
+  }
+
+  to {
+    transform: rotate(360deg) scale(1);
+  }
 }
 
 
@@ -155,5 +240,34 @@ html {
     &__link {
       margin-right: 32px;
     }
+  }
+
+  .header {
+    &__title {
+      font-size: 4em;
+    }
+
+    &__description {
+      font-size: 1em;
+    }
+  }
+
+  .app {
+  
+    &__glass {
+      width: 15%;
+    }
+  }
+
+  .counter {
+    min-width: 10vw;
+
+    &__header {
+      font-size: 2em;
+    }
+  }
+
+  .buttons {
+    max-width: 50vw;
   }
 }

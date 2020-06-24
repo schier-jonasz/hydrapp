@@ -156,7 +156,7 @@
   <body class="body">
     <nav class="navigation navigation--js">
       <a href="index.html" class="navigation__link">main</a>
-      <a href="index.html" class="navigation__link">check</a>
+      <a href="index.html" class="navigation__link">history</a>
     </nav>
     <button class="hamburger hamburger--js" aria-label="Main Menu">
       <svg width="60" height="60" viewBox="0 0 100 100">
@@ -177,10 +177,14 @@
         <p class="header__description">Count how many glasses of water you drink per day</p>
       </header>
       <div class="app">
+        <div class="counter">
+          <h2 class="counter__header">Today: </h2>
+          <p class="counter__number">0</p>
+        </div>      
         <img class="app__glass" src="/public/glass.png">
         <div class="buttons">
-          <button class="buttons_button buttons__add">add glass</button>
-          <button class="buttons_button buttons__remove">remove glass</button>
+          <button class="buttons__button buttons__add">add glass</button>
+          <button class="buttons__button buttons__remove">remove glass</button>
         </div>
       </div>
     </main>
