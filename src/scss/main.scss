@@ -1,6 +1,6 @@
 @import "~normalize.css";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
-@import "bourbon";
+
 
 @mixin border-gradient($from, $to, $weight: 0) {
   $mix-main: mix($from, $to);
@@ -270,4 +270,24 @@ html {
   .buttons {
     max-width: 50vw;
   }
+}
+
+@media (min-width: 769px) {
+  .counter {
+    min-width: 35vw;
+    justify-content: space-evenly;
+  
+    &__number {
+      font-size: 2em;
+    }
+  }
+  
+  .app {
+  
+    &__glass {
+      width: 20%;
+    }
+  }
+
+
 }
