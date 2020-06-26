@@ -1,0 +1,36 @@
+.history {
+    min-width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    
+    min-width: 30vw;
+
+    &__item {
+        list-style: none;
+        border: 1px solid #000;
+        padding: 16px;
+        margin-bottom: 16px;
+        font-size: 1.25em;
+        position: relative;
+        background-color: #4C83FF;
+        color: #fff;
+
+        &::after {
+            content: "x";
+            display: inline-block;
+            position: absolute;
+            z-index: -10;
+            color: #000;
+            font-size: 1.25em;
+            transition: transform 0.3s linear;
+            
+        }
+
+        &:hover::after {
+            transform: translateX(40px);
+        }
+    }
+}
